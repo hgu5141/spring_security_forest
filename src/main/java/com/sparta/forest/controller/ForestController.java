@@ -5,6 +5,7 @@ import com.sparta.forest.model.Forest;
 import com.sparta.forest.repository.ForestRepository;
 import com.sparta.forest.service.ForestService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class ForestController {
     private final ForestService forestService;
 
 //    @Autowired
-//    public ProductController(ForestService forestService) {
+//    public ForestController(ForestService forestService) {
 //        this.forestRepository = forestService;
 //    }
 
@@ -25,7 +26,7 @@ public class ForestController {
         return forestRepository.findAllByOrderByModifiedAtDesc();
     }
 
-    @PostMapping("api/forests")
+    @PostMapping("/api/forests")
     public Forest createForest(@RequestBody ForestRequestDto requestDto) {
         Forest forest = new Forest(requestDto);
         System.out.println(requestDto);
