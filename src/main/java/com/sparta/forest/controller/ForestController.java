@@ -3,9 +3,11 @@ package com.sparta.forest.controller;
 import com.sparta.forest.dto.ForestRequestDto;
 import com.sparta.forest.model.Forest;
 import com.sparta.forest.repository.ForestRepository;
+import com.sparta.forest.security.UserDetailsImpl;
 import com.sparta.forest.service.ForestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +28,8 @@ public class ForestController {
         return forestRepository.findAllByOrderByModifiedAtDesc();
     }
 
+
+
     @PostMapping("/api/forests")
     public Forest createForest(@RequestBody ForestRequestDto requestDto) {
         Forest forest = new Forest(requestDto);
@@ -43,6 +47,9 @@ public class ForestController {
         public Long updateForest(@PathVariable Long id, @RequestBody ForestRequestDto requestDto) {
             forestService.update(id, requestDto);
             return id;
-        }
+    }
+
+
+
 
 }

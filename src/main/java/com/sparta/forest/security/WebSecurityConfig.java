@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // 로그인 처리 (POST /user/login)
                 .loginProcessingUrl("/user/login")
 // 로그인 처리 후 성공 시 URL
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/outindex")
 // 로그인 처리 후 실패 시 URL
                 .failureUrl("/user/login?error")
                 .permitAll()

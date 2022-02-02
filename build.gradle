@@ -33,6 +33,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
 //     Thymeleaf (뷰 템플릿 엔진)
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // Thymeleaf 에서 springsecurity 의존성 설정
+//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+//
+//    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+// https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
+
 }
 
 tasks.named('test') {

@@ -21,7 +21,7 @@
             $('#cards-box').empty();
             $.ajax({
                 type: "GET",
-                url: "/api/contents",
+                url: "/api/forests",
                 data: {},
                 success: function (response) {
                     for (let i = 0; i < response.length; i++) {
@@ -300,20 +300,21 @@
 </div>
 <div class="wrap">
     <div class="header">
+        <a id="logout-text" href="/user/logout">
+            로그아웃
+        </a>
 
-        <a id="login-text" href="/user/login">
-            로그인
-        </a>
-        <a id="signup-text" href="/user/signup">
-            회원가입
-        </a>
+
         <h2>항해99 바다 위 대나무숲<br><br>
-
+            <li><span th:text="${username}"></span> 님,<br><br></li>
             맘껏 외치세요 무야호!
         </h2>
     </div>
     <div class="to-write">
+        <li>
+            <button type="button" class="btn btn-primary" onclick='window.location.replace("/write")'><b>글 쓰 기</b></button>
 
+        </li>
     </div>
     <div id="cards-box" class="area-read">
         <div class="card">
